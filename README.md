@@ -8,11 +8,16 @@ This UiPath automation fills out the [RPA Challenge form](https://rpachallenge.c
 
 > ⚠️ Before running the bot, make sure this folder structure exists in your **Documents** directory:
 
-C:\Users<YourUsername>\Documents\RPAChallengeBot
+C:\Users<YourUsername>\Documents\Production FIles\RPAChallenge_REFramework
+
 │
+
 ├── Processing
+
 │ └── challenge.xlsx ← Place your input file here
+
 │
+
 └── Completed\ ← Processed file will be moved here
 
 ---
@@ -23,8 +28,11 @@ C:\Users<YourUsername>\Documents\RPAChallengeBot
 - Must be placed inside the `Processing` folder
 - Required columns (headers must match the field names on the RPA Challenge form):
 
+First Name | Last Name | Company Name | Role in Company | Address | Email | Phone Number | RPA Status
 
-> During processing, a new column named **`RPA Status`** will be added to track success/failure for each row.
+> ✅ **Important:**  
+> Before running the bot, **you must manually add a column named `RPA Status` as the last column** in the Excel file.  
+> This column will be updated by the bot to show whether each row was processed successfully or failed.
 
 ---
 
@@ -32,10 +40,11 @@ C:\Users<YourUsername>\Documents\RPAChallengeBot
 
 1. Open the project in UiPath Studio
 2. Place your `challenge.xlsx` file inside:
+  Documents\RPAChallengeBot\Processing\
 3. Run the automation
 4. After processing:
-- The Excel file will be updated with an **RPA Status** column
-- It will be automatically moved to the **Completed** folder
+- The `RPA Status` column will be updated
+- The file will be automatically moved to the **Completed** folder
 
 ---
 
@@ -50,5 +59,4 @@ C:\Users<YourUsername>\Documents\RPAChallengeBot
 ## ✅ Features
 
 - Handles dynamic form field positions
-- Adds processing status to each row
-- Moves completed files to Completed folder
+- Uses the manually added `RPA Status` column to write row-wise result
