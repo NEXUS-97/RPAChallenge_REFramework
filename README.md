@@ -1,39 +1,54 @@
-### Documentation is included in the Documentation folder ###
+# RPA Challenge - UiPath Automation
+
+This UiPath automation fills out the [RPA Challenge form](https://rpachallenge.com/) using data from an Excel file. It intelligently handles changing field positions and updates input records with the processing status.
+
+---
+
+## 📁 Folder Structure
+
+> ⚠️ Before running the bot, make sure this folder structure exists in your **Documents** directory:
+
+C:\Users<YourUsername>\Documents\RPAChallengeBot
+│
+├── Processing
+│ └── challenge.xlsx ← Place your input file here
+│
+└── Completed\ ← Processed file will be moved here
+
+---
+
+## 📥 Input File Format
+
+- File name: `challenge.xlsx`
+- Must be placed inside the `Processing` folder
+- Required columns (headers must match the field names on the RPA Challenge form):
 
 
-### REFrameWork Template ###
-**Robotic Enterprise Framework**
+> During processing, a new column named **`RPA Status`** will be added to track success/failure for each row.
 
-* Built on top of *Transactional Business Process* template
-* Uses *State Machine* layout for the phases of automation project
-* Offers high level logging, exception handling and recovery
-* Keeps external settings in *Config.xlsx* file and Orchestrator assets
-* Pulls credentials from Orchestrator assets and *Windows Credential Manager*
-* Gets transaction data from Orchestrator queue and updates back status
-* Takes screenshots in case of system exceptions
+---
 
+## 🚀 How to Use
 
-### How It Works ###
+1. Open the project in UiPath Studio
+2. Place your `challenge.xlsx` file inside:
+3. Run the automation
+4. After processing:
+- The Excel file will be updated with an **RPA Status** column
+- It will be automatically moved to the **Completed** folder
 
-1. **INITIALIZE PROCESS**
- + ./Framework/*InitiAllSettings* - Load configuration data from Config.xlsx file and from assets
- + ./Framework/*GetAppCredential* - Retrieve credentials from Orchestrator assets or local Windows Credential Manager
- + ./Framework/*InitiAllApplications* - Open and login to applications used throughout the process
+---
 
-2. **GET TRANSACTION DATA**
- + ./Framework/*GetTransactionData* - Fetches transactions from an Orchestrator queue defined by Config("OrchestratorQueueName") or any other configured data source
+## 🧰 Requirements
 
-3. **PROCESS TRANSACTION**
- + *Process* - Process trasaction and invoke other workflows related to the process being automated 
- + ./Framework/*SetTransactionStatus* - Updates the status of the processed transaction (Orchestrator transactions by default): Success, Business Rule Exception or System Exception
+- UiPath Studio installed
+- Excel installed (or Excel activities package)
+- Internet access to reach the challenge website
 
-4. **END PROCESS**
- + ./Framework/*CloseAllApplications* - Logs out and closes applications used throughout the process
+---
 
+## ✅ Features
 
-### For New Project ###
-
-1. Check the Config.xlsx file and add/customize any required fields and values
-2. Implement InitiAllApplications.xaml and CloseAllApplicatoins.xaml workflows, linking them in the Config.xlsx fields
-3. Implement GetTransactionData.xaml and SetTransactionStatus.xaml according to the transaction type being used (Orchestrator queues by default)
-4. Implement Process.xaml workflow and invoke other workflows related to the process being automated
+- Handles dynamic form field positions
+- Adds processing status to each row
+- Moves completed files to Completed folder
