@@ -1,0 +1,8 @@
+ClientName: Test
+SubClientName: Test
+ProjectName: Framework
+Subproject: V2 New
+SubProjectType: Framework
+LogFilePath: C:\Users\Thisara\Documents/Project Stats/RPAChallenge_REFramework/Logs/
+ExScreenshotsFolderPath: C:\Users\Thisara\Documents/Project Stats/RPAChallenge_REFramework/ExScreenshotsFolderPath/
+ProductionFolder: C:\Users\Thisara\Documents/Production Files/RPAChallenge_REFramework/

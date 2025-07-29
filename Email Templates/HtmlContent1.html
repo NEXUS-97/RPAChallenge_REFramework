@@ -1,0 +1,32 @@
+<HTML><HEAD>
+<STYLE type=text/css>
+        body {
+            font-family: Calibri;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .mapping {
+            background-color: #D3D4D7;
+            color: black;
+            padding: 1px;
+        }
+    </STYLE>
+<!-- Instruct the web browser control to use IE 6 to render the page. -->
+<META content=IE=6 http-equiv=X-UA-Compatible></HEAD>
+<BODY>
+<DIV class=email-container>
+<H1>Project Execution Status</H1>
+<DIV class="status-heading status-done">Project Status: <FONT style="BACKGROUND-COLOR: #ff0000">Faulted</FONT></DIV>
+<DIV class=status-message>
+<P>The automation has thrown an exception.</P>
+<P>&nbsp;</P></DIV>
+<DIV class=project-details>
+<P>&nbsp;</P>
+<P><STRONG>Date:</STRONG> {{DateToday}}</P>
+<P>&nbsp;</P>
+<P><STRONG>Stack Trace:</STRONG></P>
+<P><SPAN class=mapping contentEditable=false>{{Exception}}</SPAN></P>
+<P>&nbsp;</P></DIV></DIV></BODY></HTML>
